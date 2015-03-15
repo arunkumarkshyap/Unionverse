@@ -1,0 +1,144 @@
+﻿Imports System
+Imports System.Data
+Imports System.Configuration
+Imports System.Collections
+Imports System.Web
+Imports System.Web.Security
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
+Imports System.Web.UI.WebControls.WebParts
+Imports System.Web.UI.HtmlControls
+
+Imports UserLibrary
+
+Partial Class CMSModules_Membership_Controls_GroupType1EmployeesAdd
+    Inherits System.Web.UI.UserControl
+    Public Property GroupType1UserID() As Integer
+        Get
+            If Not IsNothing(ViewState("GroupType1UserID")) AndAlso IsNumeric(ViewState("GroupType1UserID")) Then
+                Return CInt(ViewState("GroupType1UserID"))
+            Else
+                Return CType(Session("Users"), Users).UserID
+            End If
+        End Get
+        Set(ByVal value As Integer)
+            ViewState("GroupType1UserID") = value
+        End Set
+    End Property
+    Public Property GroupType1ID() As Integer
+        Get
+            If Not IsNothing(ViewState("GroupType1ID")) AndAlso IsNumeric(ViewState("GroupType1ID")) Then
+                Return CInt(ViewState("GroupType1ID"))
+            Else
+                Return 0
+            End If
+        End Get
+        Set(ByVal value As Integer)
+            ViewState("GroupType1ID") = value
+        End Set
+    End Property
+
+
+
+    Public Sub LoadData()
+        Dim oUT1E As New smt_UserType1Employee
+        Dim Arl As New ArrayList
+        Dim i As Integer = 0
+        For a As Integer = 1 To 25
+            If Arl.Count > 0 AndAlso Arl.Count < i Then
+                Dim oUE As New smt_UserType1Employee
+                oUE = CType(Arl.Item(i), smt_UserType1Employee)
+                If a = oUE.Hierarchy Then
+                    LoadRecord(oUE.UserType1EmployeeID, oUE.FirstName, oUE.LastName, oUE.EmailAddress, oUE.Position, oUE.Hierarchy)
+                    i = i + 1
+                Else
+                    LoadRecord(0, "", "", "", "", a)
+                End If
+            Else
+                LoadRecord(0, "", "", "", "", a)
+            End If
+        Next
+    End Sub
+
+
+    Public Sub LoadRecord(ByVal UserType1EmployeeID As Integer, ByVal FirstName As String, ByVal LastName As String, ByVal EmailAddress As String, ByVal Position As String, ByVal Hierarchy As Integer)
+        CType(FindControl("txtFirstName" & Hierarchy), TextBox).Text = FirstName
+        CType(FindControl("txtLastName" & Hierarchy), TextBox).Text = LastName
+        CType(FindControl("txtPosition" & Hierarchy), TextBox).Text = Position
+        CType(FindControl("txtEmailAddress" & Hierarchy), TextBox).Text = EmailAddress
+        CType(FindControl("UserType1EmployeeID" & Hierarchy), Label).Text = UserType1EmployeeID
+    End Sub
+
+    Public Sub SaveData(ByVal GroupType1ID As Integer, ByVal GroupType1UserID As Integer, ByVal UserType1EmployeeID As Integer, ByVal FirstName As String, ByVal LastName As String, ByVal EmailAddress As String, ByVal Position As String, ByVal Hierarchy As Integer)
+        If UserType1EmployeeID > 0 Then
+            Dim oUTE1 As New smt_UserType1Employee(UserType1EmployeeID, ConfigurationManager.AppSettings("connectionString").ToString())
+            If Not IsNothing(oUTE1) Then
+                oUTE1.FirstName = FirstName
+                oUTE1.LastName = LastName
+                oUTE1.EmailAddress = EmailAddress
+                oUTE1.Position = Position
+                oUTE1.Hierarchy = Hierarchy
+                oUTE1.save()
+                Dim oU1 As New Users(oUTE1.UserID)
+                oU1.FirstName = FirstName
+                oU1.LastName = LastName
+                oU1.Email = EmailAddress
+                oU1.Username = EmailAddress
+                oU1.Save()
+            End If
+        ElseIf GroupType1ID > 0 AndAlso GroupType1UserID > 0 Then
+            Dim UI As New Users()
+            UI.Email = EmailAddress
+            UI.FirstName = FirstName.Trim
+            UI.LastName = LastName.Trim()
+            UI.Username = EmailAddress
+            UI.Password = "12345"
+            UI.Save()
+            Dim oUTE1 As New smt_UserType1Employee
+            oUTE1.UserType1ID = GroupType1ID
+            oUTE1.UserType1UserID = GroupType1UserID
+            oUTE1.FirstName = UI.FirstName
+            oUTE1.LastName = UI.LastName
+            oUTE1.EmailAddress = UI.Email
+            oUTE1.Position = oUTE1.Position
+            oUTE1.Hierarchy = Hierarchy
+            oUTE1.UserID = UI.UserID
+            oUTE1.save()
+            Dim oSV As New smt_StarShipVoyager
+            oSV.GroupTypeUserID = GroupType1UserID
+            oSV.GroupID = GroupType1ID
+            oSV.EmployeeUserID = UI.UserID
+            oSV.IsApproved = True
+            oSV.StarShipVoyagerGUID = Guid.NewGuid
+            oSV.save()
+            EmailHelper.EmployeeAddEmail(oUTE1.UserID, oUTE1.UserType1UserID)
+        End If
+    End Sub
+
+    Public Sub SaveAll()
+        For a As Integer = 1 To 25
+            Dim _UserTypeEmplyeeID As Integer = 0
+            Dim _FirstName As String = ""
+            Dim _LastName As String = ""
+            Dim _Position As String = ""
+            Dim _EmailAddress As String = ""
+            Dim _Hierarchy As Integer = 0
+            _FirstName = CType(FindControl("txtFirstName" & a), TextBox).Text
+            _LastName = CType(FindControl("txtLastName" & a), TextBox).Text
+            _Position = CType(FindControl("txtPosition" & a), TextBox).Text
+            _EmailAddress = CType(FindControl("txtEmailAddress" & a), TextBox).Text
+            _UserTypeEmplyeeID = CInt(CType(FindControl("UserType1EmployeeID" & a), Label).Text)
+            _Hierarchy = a
+
+            If _FirstName.Trim.Length > 0 AndAlso _LastName.Trim.Length > 0 AndAlso _Position.Trim.Length > 0 AndAlso _EmailAddress.Trim.Length > 0 Then
+                SaveData(GroupType1ID, GroupType1UserID, _UserTypeEmplyeeID, _FirstName, _LastName, _EmailAddress, _Position, _Hierarchy)
+            End If
+        Next
+    End Sub
+
+    Protected Sub btnSave_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSave.Click
+        SaveAll()
+        Dim oU As New Users(GroupType1UserID)
+        Response.Redirect(UIHelper.GetUnionVerseBasePathURL() & "/Members/" & oU.Username.Replace(" ", " ") & ".aspx")
+    End Sub
+End Class

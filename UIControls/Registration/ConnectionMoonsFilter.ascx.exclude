@@ -1,0 +1,28 @@
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeFile="ConnectionMoonsFilter.ascx.vb"
+    Inherits="CMSModules_Membership_Controls_ConnectionMoonsFilter" %>
+<asp:PlaceHolder runat="server" ID="phMoonConnections">
+    
+    <div class="phMoonConnections">
+    <h1 runat="server" id="h1Type"></h1>
+        <asp:Repeater runat="server" ID="rpOrbI2IType2">
+            <HeaderTemplate>
+                <table cellpadding="0" cellspacing="0" width="100%">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <tr>
+                    <td>
+                        <img src='<%#GetUserImage(CInt(Eval("UserAvatarID")))%>' alt='<%#Eval("UserName")%>'
+                            width="50" height="50" />
+                    </td>
+                    <td>
+                        <a href='<%# UIHelper.GetBasePathURL() & "/Members/" & Eval("UserName") & ".aspx" %>'>
+                            <%#Eval("UserName")%></a>
+                    </td>
+                </tr>
+            </ItemTemplate>
+            <FooterTemplate>
+                </table>
+            </FooterTemplate>
+        </asp:Repeater>
+    </div>
+</asp:PlaceHolder>

@@ -1,0 +1,142 @@
+﻿Imports System
+Imports System.Data
+Imports System.Configuration
+Imports System.Collections
+Imports System.Web
+Imports System.Web.Security
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
+Imports System.Web.UI.WebControls.WebParts
+Imports System.Web.UI.HtmlControls
+
+Imports CMS.CMSHelper
+Imports CMS.GlobalHelper
+Imports CMS.SiteProvider
+Imports CMS.UIControls
+Imports CMS.SettingsProvider
+
+Imports SMTKenticoLibrary
+Partial Class CMSModules_Membership_Controls_ConnectionMoonsFilter
+    Inherits System.Web.UI.UserControl
+    Public Property Types() As String
+        Get
+            If Not IsNothing(ViewState("Types")) AndAlso CStr(ViewState("Types")).ToCharArray.Length > 0 Then
+                Return CStr(ViewState("Types"))
+            Else
+                Return ""
+            End If
+        End Get
+        Set(ByVal value As String)
+            ViewState("Types") = value
+        End Set
+    End Property
+    Public Property EducationLevel() As String
+        Get
+            If Not IsNothing(ViewState("EducationLevel")) AndAlso CStr(ViewState("EducationLevel")) Then
+                Return CStr(ViewState("EducationLevel"))
+            Else
+                Return ""
+            End If
+        End Get
+        Set(ByVal value As String)
+            ViewState("EducationLevel") = value
+        End Set
+    End Property
+    Public Property GovtType() As String
+        Get
+            If Not IsNothing(ViewState("GovtType")) AndAlso CStr(ViewState("GovtType")).Trim.Length > 0 Then
+                Return CStr(ViewState("GovtType"))
+            Else
+                Return ""
+            End If
+        End Get
+        Set(ByVal value As String)
+            ViewState("GovtType") = value
+        End Set
+    End Property
+    Public Property MediaType() As String
+        Get
+            If Not IsNothing(ViewState("MediaType")) AndAlso CStr(ViewState("MediaType")).Trim.Length > 0 Then
+                Return CStr(ViewState("MediaType"))
+            Else
+                Return ""
+            End If
+        End Get
+        Set(ByVal value As String)
+            ViewState("MediaType") = value
+        End Set
+    End Property
+    Public Property YearFrom() As Integer
+        Get
+            If Not IsNothing(ViewState("YearFrom")) AndAlso IsNumeric(ViewState("YearFrom")) Then
+                Return CInt(ViewState("YearFrom"))
+            Else
+                Return 0
+            End If
+        End Get
+        Set(ByVal value As Integer)
+            ViewState("YearFrom") = value
+        End Set
+    End Property
+    Public Property YearTo() As Integer
+        Get
+            If Not IsNothing(ViewState("YearTo")) AndAlso IsNumeric(ViewState("YearTo")) Then
+                Return CInt(ViewState("YearTo"))
+            End If
+        End Get
+        Set(ByVal value As Integer)
+            ViewState("YearTo") = value
+        End Set
+    End Property
+    Public Property UserID() As Integer
+        Get
+            If Not IsNothing(ViewState("UserID")) AndAlso IsNumeric(ViewState("UserID")) Then
+                Return CInt(ViewState("UserID"))
+            Else
+                Return CMSContext.CurrentUser.UserID
+            End If
+        End Get
+        Set(ByVal value As Integer)
+            ViewState("UserID") = value
+        End Set
+    End Property
+    Public Sub LoadData()
+        Select Case Types.Trim.ToLower
+            Case "school"
+                Me.h1Type.InnerHtml = EducationLevel
+            Case "government"
+                Me.h1Type.InnerHtml = GovtType
+            Case "media"
+                Me.h1Type.InnerHtml = MediaType
+            Case "parks & recreation"
+                Me.h1Type.InnerHtml = "Parks & Recreation"
+            Case "groups"
+                Me.h1Type.InnerHtml = "Groups (General)"
+        End Select
+
+
+        Dim Arl As New ArrayList
+        Dim oCF As New Community_Friend
+        Arl = oCF.MoonsConnectionGetByFilter(UserID, 0, 2, Types, EducationLevel, GovtType, MediaType, YearFrom, YearTo, )
+        If Arl.Count > 0 Then
+            Me.rpOrbI2IType2.DataSource = Arl
+            Me.rpOrbI2IType2.DataBind()
+            'Me.phMoonConnections.Visible = True
+        Else
+            Me.rpOrbI2IType2.DataSource = New ArrayList
+            Me.rpOrbI2IType2.DataBind()
+            'Me.phMoonConnections.Visible = False
+        End If
+    End Sub
+
+    Public Function GetUserImage(ByVal UserAvatarID As Integer) As String
+        Dim oA As AvatarInfo = AvatarInfoProvider.GetAvatarInfo(UserAvatarID)
+        If Not IsNothing(oA) Then
+            Return UIHelper.GetBasePathURL() & "/CMSModules/Avatars/CMSPages/GetAvatar.aspx?avatarguid=" & oA.AvatarGUID.ToString.Trim()
+        Else
+            Return ""
+        End If
+    End Function
+
+
+End Class

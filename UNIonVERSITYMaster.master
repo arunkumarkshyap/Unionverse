@@ -1,0 +1,78 @@
+﻿<%@ Master Language="VB" CodeFile="UNIonVERSITYMaster.master.vb" Inherits="_ElectronMaster" %>
+
+<%@ Register Src="UIControls/Profile/CurerntUser.ascx" TagName="currentuser"
+    TagPrefix="uc3" %>
+
+<%@ Register Src="UIControls/Loginfooter.ascx" TagName="footer" TagPrefix="uc1" %>
+<%@ Register Src="UIControls/TopMenuMain.ascx" TagName="TopMenuMain" TagPrefix="uc4" %>
+<%@ Register Src="~/UIControls/Profile/CurerntUser.ascx" TagPrefix="uc1" TagName="CurerntUser" %>
+<%@ Register Src="~/UIControls/UNIonVERSITYSideMenu.ascx" TagPrefix="uc1" TagName="UNIonVERSITYSideMenu" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <title>UNIonVERSE ::: UniVersity </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <link rel="shortcut icon" href="<%=UIHelper.GetUnionVerseBasePathURL() & "/favicon.ico" %>" />
+    <link rel="icon" href="<%=UIHelper.GetUnionVerseBasePathURL() & "/favicon.ico"%>" />
+    <link href="http://localhost:63173/Unionverse/css/Default.css" type="text/css" rel="stylesheet" />
+    <link href="http://localhost:63173/Unionverse/css/smt_style.css" type="text/css" rel="stylesheet" />
+    <link href="http://localhost:63173/Unionverse/css/smt_common.css" type="text/css" rel="stylesheet" />
+</head>
+<body class="LTR IE9 ENUS">
+    <form id="form1" runat="server">
+
+        <asp:ScriptManager runat="server" ID="spm">
+        </asp:ScriptManager>
+        <!-- Top info -->
+        <div class="body_wrap">
+            <div class="head">
+                  <div class="h_row1">
+                    <div class="hdr1">
+                        <div style="width:300px; float:left;">
+                            <a href="<%=UIHelper.GetBasePath() & "/" %>"><img src="<%=UIHelper.GetBasePath & "/images/ico/home.png"%>" /> Home</a>&nbsp; &nbsp;
+                            <img src="<%=UIHelper.GetBasePath & "/images/ico/profile.png"%>" /><uc1:CurerntUser runat="server" ID="CurerntUser" />
+                        </div>
+                        <div style="width:200px; float:right; text-align:right;">
+                            <img src="<%=UIHelper.GetBasePath & "/images/ico/uni.png"%>" /><span runat="server" id="spnUNI">(312.95)</span>&nbsp; &nbsp;
+                            <a href="<%=UIHelper.GetBasePath & "/Messages.aspx" %>"><img src="<%=UIHelper.GetBasePath & "/images/ico/message.png"%>" /> <span runat="server" id="spnMessageCount">(0)</span></a>&nbsp; &nbsp;
+                            <asp:LinkButton runat="server" ID="lbtLogOut"><img src="<%=UIHelper.GetBasePath & "/images/ico/logout.png"%>" /></asp:LinkButton> 
+                        </div>
+                        <div class="cb">
+                        </div>
+                    </div>
+                </div>
+                <div class="h_row2">
+                    <div class="lgo">
+                        <img src="http://localhost:63173/Unionverse/Images/logo2.png" alt="Unionverse" />
+                    </div>
+                </div>
+                <div class="h_row3">
+                    <div class="nav_wrap">
+                        <uc4:TopMenuMain ID="TopMenuMain1" runat="server" />
+                    </div>
+                </div>
+                <div class="cb">
+                </div>
+            </div>
+            <div class="main">
+                <div class="body">
+                    <div class="col1">
+                        <uc1:UNIonVERSITYSideMenu runat="server" ID="UNIonVERSITYSideMenu" />  
+                    </div>
+                    <div class="col2">
+                        <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder1"></asp:ContentPlaceHolder>
+                    </div>
+                    <div class="cb"></div>
+                </div>
+                <div class="footer2">
+                    <uc1:footer ID="uc_footer" runat="server" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

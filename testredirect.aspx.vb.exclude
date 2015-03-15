@@ -1,0 +1,21 @@
+﻿Imports System.Collections.Generic
+
+Imports System.Web
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
+Imports CMS.GlobalHelper
+
+Partial Public Class testredirect
+    Inherits System.Web.UI.Page
+    Protected Sub Page_Load(sender As Object, e As EventArgs)
+        If ValidationHelper.GetString(Request.QueryString("qsDefaultUrl"), "") <> "" Then
+            imgBlackwholes.Src = UIHelper.GetBlackWholesBasePath() & "/setcookies.aspx?username=" & User.Identity.Name
+            imgWhitewholes.Src = UIHelper.GetWhiteWholesPath() & "/setcookies.aspx?username=" & User.Identity.Name
+            imgWormwholes.Src = UIHelper.GetWormWholesPath() & "/setcookies.aspx?username=" & User.Identity.Name
+            imgFleetports.Src = UIHelper.GetFleetPortsBasePath() & "/setcookies.aspx?username=" & User.Identity.Name
+            imgUEnter.Src = UIHelper.GetUventerPriseBasePath() & "/setcookies.aspx?username=" & User.Identity.Name
+            imgUScreen.Src = UIHelper.GetUvScreenBasePath() & "/setcookies.aspx?username=" & User.Identity.Name
+            hdURL.Value = Request.QueryString("qsDefaultUrl").ToString()
+        End If
+    End Sub
+End Class

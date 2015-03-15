@@ -1,0 +1,474 @@
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeFile="GroupType1EmployeesAdd.ascx.vb"
+    Inherits="CMSModules_Membership_Controls_GroupType1EmployeesAdd" %>
+<table>
+    <tr>
+        <td>
+            Hierarchy&nbsp;
+        </td>
+        <td>
+            First Name
+        </td>
+        <td>
+            Last Name
+        </td>
+        <td>
+            Position
+        </td>
+        <td>
+            Email Address
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy1" Text="1"></asp:Label> Leader
+            <asp:Label runat="server" ID="UserType1EmployeeID1" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName1" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName1" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition1" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress1" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy2" Text="2"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID2" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName2" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName2" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition2" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress2" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy3" Text="3"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID3" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName3" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName3" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition3" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress3" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy4" Text="4"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID4" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName4" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName4" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition4" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress4" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy5" Text="5"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID5" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName5" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName5" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition5" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress5" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy6" Text="6"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID6" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName6" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName6" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition6" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress6" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy7" Text="7"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID7" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName7" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName7" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition7" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress7" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy8" Text="8"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID8" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName8" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName8" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition8" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress8" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy9" Text="9"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID9" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName9" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName9" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition9" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress9" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy10" Text="10"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID10" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName10" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName10" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition10" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress10" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy11" Text="11"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID11" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName11" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName11" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition11" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress11" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy12" Text="12"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID12" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName12" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName12" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition12" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress12" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy13" Text="13"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID13" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName13" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName13" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition13" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress13" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy14" Text="14"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID14" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName14" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName14" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition14" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress14" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy15" Text="15"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID15" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName15" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName15" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition15" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress15" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy16" Text="16"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID16" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName16" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName16" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition16" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress16" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy17" Text="17"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID17" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName17" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName17" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition17" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress17" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy18" Text="18"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID18" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName18" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName18" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition18" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress18" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy19" Text="19"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID19" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName19" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName19" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition19" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress19" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy20" Text="20"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID20" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName20" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName20" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition20" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress20" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy21" Text="21"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID21" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName21" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName21" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition21" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress21" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy22" Text="22"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID22" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName22" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName22" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition22" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress22" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy23" Text="23"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID23" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName23" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName23" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition23" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress23" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy24" Text="24"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID24" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName24" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName24" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition24" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress24" Width="115"></asp:TextBox>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label runat="server" ID="lblHierarchy25" Text="25"></asp:Label>
+            <asp:Label runat="server" ID="UserType1EmployeeID25" Text="0" Visible="false"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtFirstName25" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtLastName25" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtPosition25" Width="115"></asp:TextBox>
+        </td>
+        <td>
+            <asp:TextBox runat="server" ID="txtEmailAddress25" Width="115"></asp:TextBox>
+        </td>
+    </tr> 
+</table>
+<div style="text-align:right;">
+<span class="btn_move"><asp:LinkButton  runat="server" ID="btnSave" Text="Save"></asp:LinkButton></span>
+</div>

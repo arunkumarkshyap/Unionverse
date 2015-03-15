@@ -1,0 +1,2 @@
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeFile="AddFriends.ascx.vb" Inherits="UIControls_Profile_AddFriends" %>
+<span class="btn_move" runat="server" id="spnFriend"><asp:LinkButton runat="server" ID="lbtAddFriend" Text="Add Connection"></asp:LinkButton></span>
